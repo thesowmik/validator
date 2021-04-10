@@ -6,7 +6,7 @@ blpin(){
 #i=1
 for i in $( eval echo {0..${len}} )
 do
-curl "https://circle.happycell.mobi/mylife/appapi/appcall.php?op=getOTC&pin=19823&app_version=75&msisdn='${num}'" --header 'x-app-key: 0skgg0ksg4880840w8w4gco0k4wckw0cg0w0w88s'
+curl -s "https://circle.happycell.mobi/mylife/appapi/appcall.php?op=getOTC&pin=19823&app_version=75&msisdn='${num}'" --header 'x-app-key: 0skgg0ksg4880840w8w4gco0k4wckw0cg0w0w88s' -L
 #i=$(($i + 1))
 done
 }
